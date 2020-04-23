@@ -17,7 +17,7 @@ type Props = {
 
 const FormSubmit = ({className, label, name}: Props) => (
   <span className={'buttons' + (className ? ' ' + className : '')}>
-    <button {...(name ? {name: name} : null)} type="submit">{label}</button>
+    <button name={name} type="submit">{label}</button>
   </span>
 );
 
