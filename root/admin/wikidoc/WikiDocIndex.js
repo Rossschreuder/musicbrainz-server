@@ -20,16 +20,16 @@ import type {WikiDocT} from './types';
 type PropsT = {
   +$c: CatalystContextT,
   +pages: $ReadOnlyArray<WikiDocT>,
-  +updates_required: boolean,
-  +wiki_server: string,
-  +wiki_unreachable: boolean,
+  +updatesRequired: boolean,
+  +wikiServer: string,
+  +wikiIsUnreachable: boolean,
 };
 
 const WikiDocTable = withCatalystContext(({
   $c,
   pages,
-  updates_required,
-  wiki_server,
+  updatesRequired,
+  wikiServer,
 }: PropsT) => {
   const columns = React.useMemo(
     () => {
@@ -47,7 +47,7 @@ const WikiDocTable = withCatalystContext(({
         accessor: 'version',
         cellProps: defaults(
           {className: 'c transcluded-version'},
-          (updates_required && $c.user?.is_wiki_transcluder
+          (updatesRequired && $c.user?.is_wiki_transcluder
             ? {style: {textAlign: 'right'}}
             : {}
           ),
@@ -73,7 +73,7 @@ const WikiDocTable = withCatalystContext(({
                     {' '}
                     {bracketed(
                       <a
-                        href={'//' + wiki_server +
+                        href={'//' + wikiServer +
                               '/' + encodeURIComponent(original.id) +
                               '?diff=' + original.wiki_version +
                               '&oldid=' + original.version}
@@ -108,7 +108,7 @@ const WikiDocTable = withCatalystContext(({
               {l('Remove')}
             </a>
             {' | '}
-            <a href={'//' + wiki_server +
+            <a href={'//' + wikiServer +
                      '/' + encodeURIComponent(original.id)}
             >
               {l('View on wiki')}
@@ -131,8 +131,8 @@ const WikiDocTable = withCatalystContext(({
     },
     [
       $c.user,
-      updates_required,
-      wiki_server,
+      updatesRequired,
+      wikiServer,
     ],
   );
 
@@ -180,7 +180,7 @@ const WikiDocIndex = withCatalystContext((props: PropsT) => (
         </>
       ) : null}
 
-      {props.wiki_unreachable ? (
+      {props.wikiIsUnreachable ? (
         <p style={{color: 'red', fontWeight: 'bold'}}>
           {l('There was a problem accessing the wiki API.')}
         </p>
