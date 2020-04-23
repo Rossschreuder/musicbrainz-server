@@ -11,6 +11,7 @@ import * as React from 'react';
 
 import FormCsrfToken from '../../components/FormCsrfToken';
 import FormRowText from '../../components/FormRowText';
+import FormRowTextLong from '../../components/FormRowTextLong';
 import FormSubmit from '../../components/FormSubmit';
 import Layout from '../../layout';
 import {withCatalystContext} from '../../context';
@@ -32,7 +33,7 @@ const CreateWikiDoc = withCatalystContext(({
       <h1>{l('Add Page')}</h1>
       <form action={$c.req.uri} method="post">
         <FormCsrfToken />
-        <FormRowText
+        <FormRowTextLong
           field={form.field.page}
           label={l('Page:')}
           required
