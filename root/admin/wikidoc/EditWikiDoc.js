@@ -17,7 +17,7 @@ import {withCatalystContext} from '../../context';
 
 type Props = {
   +$c: CatalystContextT,
-  +current_version: number,
+  +currentVersion: number,
   +form: FormT<{
     +version: FieldT<string>,
   }>,
@@ -26,7 +26,7 @@ type Props = {
 
 const EditWikiDoc = withCatalystContext(({
   $c,
-  current_version,
+  currentVersion,
   form,
   page,
 }: Props) => (
@@ -41,7 +41,7 @@ const EditWikiDoc = withCatalystContext(({
         </div>
         <div className="row">
           <label>{l('Current version:')}</label>
-          <span>{current_version}</span>
+          <span>{currentVersion}</span>
         </div>
         <FormRowText
           field={form.field.version}

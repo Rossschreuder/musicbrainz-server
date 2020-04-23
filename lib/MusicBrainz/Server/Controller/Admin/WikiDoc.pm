@@ -115,7 +115,7 @@ sub edit : Local Args(0) RequireAuth(wiki_transcluder) Edit CSRFToken
     }
 
     my %props = (
-        current_version => $current_version,
+        currentVersion => $current_version,
         form            => $form,
         page            => $page,
     );
