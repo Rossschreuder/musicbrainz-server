@@ -8,7 +8,7 @@
  */
 
 import * as React from 'react';
-import {defaults} from 'lodash';
+import defaults from 'lodash/defaults';
 
 import Layout from '../../layout';
 import Table from '../../components/Table';
