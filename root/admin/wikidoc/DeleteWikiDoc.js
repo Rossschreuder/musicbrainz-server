@@ -38,7 +38,11 @@ const DeleteWikiDoc = withCatalystContext(({
       </p>
       <form action={$c.req.uri} method="post" name="confirm">
         <FormCsrfToken />
-        <FormSubmit label={l('Yes, I\'m sure')} name="confirm.submit" />
+        <FormSubmit
+          label={l('Yes, I\'m sure')}
+          name="confirm.submit"
+          value="1"
+        />
       </form>
     </div>
   </Layout>
