@@ -137,10 +137,9 @@ sub get_wiki_versions
                 warn "'$info->{id}' doesn't exist in the wiki";
                 # Prevent "Use of uninitialized value" warnings
                 $info->{wiki_version} = 0;
-            } else {
-                # Force scalar context
-                $info->{wiki_version} += 0;
             }
+            # Force numeric context
+            $info->{wiki_version} += 0;
 
             push @wiki_pages, $info;
         }
