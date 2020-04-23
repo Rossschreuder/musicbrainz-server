@@ -43,8 +43,8 @@ sub index : Path Args(0)
     my %props = (
         pages             => \@pages,
         updatesRequired   => boolean_to_json($updates_required),
-        wikiServer        => $c->stash->{wiki_server},
         wikiIsUnreachable => boolean_to_json($wiki_unreachable),
+        wikiServer        => $c->stash->{wiki_server},
     );
 
     $c->stash(

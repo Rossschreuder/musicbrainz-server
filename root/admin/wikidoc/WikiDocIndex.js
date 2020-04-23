@@ -21,8 +21,8 @@ type PropsT = {
   +$c: CatalystContextT,
   +pages: $ReadOnlyArray<WikiDocT>,
   +updatesRequired: boolean,
-  +wikiServer: string,
   +wikiIsUnreachable: boolean,
+  +wikiServer: string,
 };
 
 const WikiDocTable = withCatalystContext(({
