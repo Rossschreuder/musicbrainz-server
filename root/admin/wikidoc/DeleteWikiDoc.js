@@ -16,13 +16,11 @@ import {withCatalystContext} from '../../context';
 
 type Props = {
   +$c: CatalystContextT,
-  +form: FormT<{}>,
   +page: string,
 };
 
 const DeleteWikiDoc = withCatalystContext(({
   $c,
-  form,
   page,
 }: Props) => (
   <Layout fullWidth title={l('Remove Page')}>
